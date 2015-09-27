@@ -1,0 +1,24 @@
+[submodule "tellstore"]
+	path = tellstore
+	url = ../tellstore.git
+	branch = master
+[submodule "telljava"]
+	path = telljava
+	url = ../telljava.git
+	branch = master
+[submodule "telldb"]
+	path = telldb
+	url = ../telldb.git
+	branch = master
+[submodule "commitmanager"]
+	path = commitmanager
+	url = ../commitmanager.git
+	branch = master
+[submodule "crossbow"]
+	path = crossbow
+	url = ../crossbow.git
+	branch = master
+[submodule "bdtree"]
+	path = bdtree
+	url = ../bdtree.git
+	branch = master
