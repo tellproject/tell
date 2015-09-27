@@ -24,3 +24,37 @@ Currently just some benchmarks. But here should come the high level user interfa
 
 ### TellJava
 A (currently unfinished) Java interface to TellStore, which gives read-only access to data stored in TellStore. This will be used to run Spark on top of TellStore.
+
+## Building
+The easiest way to build Tell is to checkout and build the whole project at once. To do so clone tell and execute the following commands:
+
+```bash
+git submodule update --init --recursive --remote
+git submodule foreach --recursive git checkout master
+```
+This should clone all necessary code into the Tell project directory. Even tough all Tell modules are independent projects, they can be built at once. If you want TellJava to be built as well, make sure to set the JAVA_HOME environmnent variable to your JDK.
+
+### Dependencies
+Tell has the following dependencies, needed to be built:
+- For Infiniband:
+  - rdmacm
+  - ibverbs
+- boost
+- Google Sparsehash
+- Intel TBB
+- JeMalloc
+
+Also please make sure to have a new enough (> 3.0) version of CMake installed on your system.
+
+### How to build
+Building, if all dependencies are installed, is easy. Just create a build directory and execute cmake followed by make:
+
+```bash
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+make install
+```
+
+You don't have to install tell to use it (so you can skip the last command). As soon as everything is built, you should be able to start tellstore and a commit manager (you need both in order to be able to run transactions). Currently TellDB is unfinished (espiacially failure recovery is not implemented), but you can look at our simple benchmarks to see how we use it currently.
