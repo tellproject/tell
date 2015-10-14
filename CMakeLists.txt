@@ -25,6 +25,9 @@ if(${CMAKE_GENERATOR} STREQUAL "Ninja")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdiagnostics-color")
 endif()
 
+set(BUILD_GLOBAL_DOCS ON CACHE BOOL "Don't build per module docs")
+set(TELL_PUBLIC_HDRS "")
+
 # Build Crossbow
 add_subdirectory(crossbow)
 
@@ -42,3 +45,18 @@ add_subdirectory(telldb)
 
 # Build TellJava
 add_subdirectory(telljava)
+
+string(REPLACE ";" " " DOXYGEN_IN_FILES "${TELL_PUBLIC_HDRS}")
+message(STATUS "Doxygen headers: ${DOXYGEN_IN_FILES}")
+if(BUILD_GLOBAL_DOCS)
+    find_package(Doxygen)
+    if (DOXYGEN_FOUND)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+        add_custom_target(doc
+            ${DOXYGEN_EXECUTABLE}
+            ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+            COMMENT "Generating API documentation")
+    endif()
+endif()
+
