@@ -46,6 +46,8 @@ add_subdirectory(telldb)
 # Build TellJava
 add_subdirectory(telljava)
 
+add_subdirectory(watch)
+
 string(REPLACE ";" " " DOXYGEN_IN_FILES "${TELL_PUBLIC_HDRS}")
 message(STATUS "Doxygen headers: ${DOXYGEN_IN_FILES}")
 if(BUILD_GLOBAL_DOCS)
