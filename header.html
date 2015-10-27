@@ -1,0 +1,71 @@
+<!-- HTML header for doxygen 1.8.10-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>$title$</title>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/css/default.css">
+
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+            var isLanding = false;
+            var menu = 'API Documentation';
+        </script>
+<!--BEGIN PROJECT_NAME--><title>$projectname: $title</title><!--END PROJECT_NAME-->
+<!--BEGIN !PROJECT_NAME--><title>$title</title><!--END !PROJECT_NAME-->
+<link href="$relpath^tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="$relpath^jquery.js"></script>
+<script type="text/javascript" src="$relpath^dynsections.js"></script>
+$treeview
+$search
+$mathjax
+<link href="$relpath^$stylesheet" rel="stylesheet" type="text/css" />
+$extrastylesheet
+</head>
+<body id="tell">
+        <div class="header">
+            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                <ul id="menu" class="pure-menu-list">
+                </ul>
+                <a class="pure-menu-heading"><img class="img-header" src="/images/tell-black.png"/></a>
+            </div>
+        </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+
+<!--BEGIN TITLEAREA-->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <!--BEGIN PROJECT_LOGO-->
+  <td id="projectlogo"><img alt="Logo" src="$relpath^$projectlogo"/></td>
+  <!--END PROJECT_LOGO-->
+  <!--BEGIN PROJECT_NAME-->
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">$projectname
+   <!--BEGIN PROJECT_NUMBER-->&#160;<span id="projectnumber">$projectnumber</span><!--END PROJECT_NUMBER-->
+   </div>
+   <!--BEGIN PROJECT_BRIEF--><div id="projectbrief">$projectbrief</div><!--END PROJECT_BRIEF-->
+  </td>
+  <!--END PROJECT_NAME-->
+  <!--BEGIN !PROJECT_NAME-->
+   <!--BEGIN PROJECT_BRIEF-->
+    <td style="padding-left: 0.5em;">
+    <div id="projectbrief">$projectbrief</div>
+    </td>
+   <!--END PROJECT_BRIEF-->
+  <!--END !PROJECT_NAME-->
+  <!--BEGIN DISABLE_INDEX-->
+   <!--BEGIN SEARCHENGINE-->
+   <td>$searchbox</td>
+   <!--END SEARCHENGINE-->
+  <!--END DISABLE_INDEX-->
+ </tr>
+ </tbody>
+</table>
+</div>
+<!--END TITLEAREA-->
+<!-- end header part -->
