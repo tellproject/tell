@@ -43,7 +43,7 @@ add_subdirectory(bdtree)
 # Build TellDB
 add_subdirectory(telldb)
 
-find_package(Java 1.7)
+find_package(Java 1.8)
 find_package(JNI)
 if (JNI_FOUND AND Java_FOUND)
     # Build TellJava
