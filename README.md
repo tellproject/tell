@@ -20,10 +20,10 @@ A C++ library with shared functionality. This library contains general purpose f
 A latch-free B-Tree index that uses TellStore to store its nodes and do distributed indexing of data - this is used by Tell to implement indexes.
 
 ### TellDB
-Currently just some benchmarks. But here should come the high level user interface for Tell. It will provide functionality to implement transactions in C++ and run them on TellStore.
+High-level user interface for Tell. It provides functionality to implement transactions in C++ and run them on TellStore.
 
 ### TellJava
-A (currently unfinished) Java interface to TellStore, which gives read-only access to data stored in TellStore. This will be used to run Spark on top of TellStore.
+A Java interface to TellStore with read-only data access. This interface is designed to enable read-only analytical workloads on top of TellStore, for example by using Apache Spark or Facebook's Presto.
 
 ## Building
 The easiest way to build Tell is to checkout and build the whole project at once. To do so clone tell and execute the following commands:
@@ -73,3 +73,6 @@ If you want to run Tell at its best performance, use link-time optimization and 
 ```bash
 -DCMAKE_AR=/usr/bin/gcc-ar -DCMAKE_RANLIB=/usr/bin/gcc-ranlib -DCMAKE_CXX_FLAGS="-march=native -flto -fuse-linker-plugin"
 ```
+
+### Running benchmarks
+A bunch of benchmarking code (in C++ for transactions and in Scala/SparkSql for analytics) is available. For the C++ code (i.e. TPC-C, TPC-H, YSBC-Server and AIM) the simplest way to build this code is to first build Tell and then clone the benchmarking code into tell/watch. Rebuilding tell will then also compile the benchmarking code. To run the benchmarking code, there is a set of python scripts that might be useful (checkout the helper_scripts project).
