@@ -43,6 +43,8 @@ Tell has the following dependencies, needed to be built:
 - Google Sparsehash
 - Intel TBB
 - JeMalloc
+- LLVM
+- Java 8 (if you want to build telljava)
 
 Also please make sure to have a new enough (> 3.0) version of CMake installed on your system.
 
@@ -58,3 +60,16 @@ make install
 ```
 
 You don't have to install tell to use it (so you can skip the last command). As soon as everything is built, you should be able to start tellstore and a commit manager (you need both in order to be able to run transactions). Currently TellDB is unfinished (espiacially failure recovery is not implemented), but you can look at our simple benchmarks to see how we use it currently.
+
+### Additional build options
+If you have LLVM installed in a custom location, use the CMAKE_PREFIX_PATH flag for cmake which takes a semicolon-separated set of paths:
+
+```bash
+-DCMAKE_PREFIX_PATH="<path to LLVM>"
+```
+
+If you want to run Tell at its best performance, use link-time optimization and the proper comple flags, which means to add the following flags to cmake:
+
+```bash
+-DCMAKE_AR=/usr/bin/gcc-ar -DCMAKE_RANLIB=/usr/bin/gcc-ranlib -DCMAKE_CXX_FLAGS="-march=native -flto -fuse-linker-plugin"
+```
