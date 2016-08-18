@@ -25,14 +25,20 @@ High-level user interface for Tell. It provides functionality to implement trans
 ### TellJava
 A Java interface to TellStore with read-only data access. This interface is designed to enable read-only analytical workloads on top of TellStore, for example by using Apache Spark or Facebook's Presto.
 
-## Building
-The easiest way to build Tell is to checkout and build the whole project at once. To do so clone tell and execute the following commands:
+## Installation
+The easiest way to build Tell is to checkout and build the whole project at once. To do so clone the tell project by executing the following command:
 
 ```bash
-git submodule update --init --recursive --remote
+git clone https://github.com/tellproject/tell.git --recursive
+```
+
+This should clone all necessary code into the Tell project directory where all submodules are checked out with a stable version. It might be that for some submodules newer (not thoroughly tested yet) commits exist. In order to checkout the newest version of each and every submodule, execute:
+
+```bash
 git submodule foreach --recursive git checkout master
 ```
-This should clone all necessary code into the Tell project directory. Even tough all Tell modules are independent projects, they can be built at once. If you want TellJava to be built as well, make sure to set the JAVA_HOME environmnent variable to your JDK.
+
+Even tough all Tell modules are independent projects, they can be built at once. If you want TellJava to be built as well, make sure to set the JAVA_HOME environmnent variable to your JDK.
 
 ### Dependencies
 Tell has the following dependencies, needed to be built:
