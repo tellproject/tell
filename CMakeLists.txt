@@ -45,7 +45,7 @@ add_subdirectory(telldb)
 
 find_package(Java 1.8)
 find_package(JNI)
-if (JNI_FOUND AND Java_FOUND)
+if (JNI_FOUND)
     # Build TellJava
     add_subdirectory(telljava)
 endif()
